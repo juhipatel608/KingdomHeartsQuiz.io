@@ -1,0 +1,88 @@
+.body{
+        background:url("images/backdrop.jpg");
+        background-size: cover;
+}
+ h1 {
+    color: rgb(159, 184, 48);
+    font-family:'Courgette', cursive;
+    text-align: center;
+    
+}
+li {
+    font-family:'Courgette', cursive;
+    font-size: 2em;
+}
+input[type=radio] {
+    border: 0px;
+    width: 1.5em;
+    height: 2em;
+}
+p {
+    font-family:'Courgette', cursive;
+}
+ .quizContainer {
+    background-color: rgb(207, 29, 29);
+    box-shadow: 1em 1em .5em rgb(159, 184, 48);
+    border-radius: .5em;
+    width: 75%;
+    margin: auto;
+    padding-top: .5em;
+    position: relative;
+}
+.nextButton {
+    background-color: rgb(159, 184, 48);
+    color: rgb(190, 45, 45);
+    border-radius: 6px;
+    width: 12em;
+    height: 3em;
+    text-align: center;
+    font-family:'Courgette', cursive;
+    font-size: 2em;
+    position: relative;
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.question {
+    background-color: rgb(159, 184, 48);
+    color:  rgb(190, 45, 45);
+    font-family:'Courgette', cursive;
+    font-size: 2em;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: .5em;
+    
+    text-align: center;
+}
+ 
+.pickone {
+    color: red;
+    background-color: rgb(157, 189, 45);
+    border-radius: .5em;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: .5em;
+    font-family:'Courgette', cursive;
+    
+}
+.choiceList {
+    font-family: Courier, cursive;
+    color: rgb(6, 2, 10);
+}
+ul {
+    list-style: none;
+}
+.result {
+    background-color: rgb(161, 216, 31);
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    font-family:'Courgette', cursive;
+}
+
+#timer{
+    color: rgb(216, 216, 60);
+}
