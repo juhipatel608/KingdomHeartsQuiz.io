@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="triviastyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-    <script type="text/javascript" src="downtimer.js"></script>
-    <script type="text/javascript" src="trivia.js"></script>
-</head>
-<body class="body">
-    <h1>Kingdom Hearts Quiz</h1>
-    <p id="timer" style="text-align:center"></p> 
-        <body>
-            <div class="quizContainer">
-                
-                <div class="question"></div>
-                <ul class="choiceList"></ul>
-                <div class="pickone"></div>
-                <div class="result"></div>
-         
-                <div class="nextButton">Next Question</div>
-                <br>
-            </div>
-        </body>
+    <title>Kingdom Hearts Trivia</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Sigmar+One" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="triviastyle.css" rel="stylesheet">
 
-        </body>
+</head>
+
+<body>
+    <header>
+        <img src='images/khbanner1.jpg' class='headerImg' width='100%'>
+    </header>
+    <audio controls loop>
+        <source src="images/Simple.mp3" type="audio/mp3"/>
+      </audio>
+      
+      <h8>Enjoy some music while you play!</h8>
+    <div class='container'>
+        <button class='btn btn-primary' id='startBtn'>Start</button>
+        <!-- Question page -->
+        <div class="quizContainer">
+        <div id=timeLeft></div>
+        <div id=currentQuestion></div>
+        <div class='question'></div>
+        <div class='answerList'></div>
+        </div>
+        <!-- Answer Page -->
+        <div id=message></div>
+        <div id=correctedAnswer></div>
+        <div id=jpg></div>
+        <!-- Scoreboard -->
+        <div id=finalMessage></div>
+        <div id=rightAnswers></div>
+        <div id=wrongAnswers></div>
+        <div id=unanswered></div>
+        <div id='startOverBtn'></div>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="trivia.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 </html>

@@ -1,136 +1,184 @@
 
-var questions = [{
+var triviaQuestions = [{
     question: "What is the name of Sora's home?",
-    choices: [ "Destiny Islands", "The Islands of Destiny", "Kingdom Islands","Disney Islands"],
-    correctAnswer: 0
+    answerList: [ "Destiny Islands", "The Islands of Destiny", "Kingdom Islands","Disney Islands"],
+    answer: 0
   },
   {
-    question: "Which of the princesses of heart will you find in the library at Hollow Bastion?",
-    choices: [ "Belle", "Alice", "Jasmine", "Kairi"],
-    correctAnswer: 0
+    question: " Which of these Disney villains do you NOT fight in the game??",
+    answerList: [ "Clayton", "Malificent", "Ursula", "Gatson"],
+    answer: 3
   },
   {
     question: "What color is the paopu fruit?",
-    choices: ["red", "green", "gold/yellow", "purple"],
-    correctAnswer: 2
+    answerList: ["red", "green", "gold/yellow", "purple"],
+    answer: 2
   },
   {
     question: "What kid celeb is the voice behind Sora?",
-    choices: ["Daveigh Chase", "Lil Romeo", "Haley Joel Osment","Jake Lloyd "],
-    correctAnswer: 2
+    answerList: ["Daveigh Chase", "Lil Romeo", "Haley Joel Osment","Jake Lloyd "],
+    answer: 2
   },
   {
     question: "Kingdom Hearts' theme song, Simple and Clean, is sung by what famous Japanese pop star?",
-    images:["../summons.jpg"],
-    choices: ["Yoko Ono","Hitoshi Ohori", "Utada Hikaru", "Chiharu Minekawa"],
-    correctAnswer: 2
+    answerList: ["Yoko Ono","Hitoshi Ohori", "Utada Hikaru", "Chiharu Minekawa"],
+    answer: 2
   },
   {
     question: "What is the first summon you get in KH1?",
-    images:["../summons.jpg"],
-    choices: [" Genie", "Simba", "TinkerBell", "Mushu"],
-    correctAnswer: 1,
+    answerList: [" Genie", "Simba", "TinkerBell", "Mushu"],
+    answer: 1,
     
   },
   {
     question: "What number in the Organization is Roxas?",
-    choices: [" 50", "1", "13", "10"],
-    correctAnswer: 2
+    answerList: [" 50", "1", "13", "10"],
+    answer: 2
   },
   {
     question: "What did Riku say before Sora, Donald, and Goofy closed the door in the end of KH1?",
-    choices: ["Take care of her", "Press F to pay respects" ,"The cake is a lie", "Im sorry"],
-    correctAnswer: 0
+    answerList: ["Take care of her", "Press F to pay respects" ,"The cake is a lie", "Im sorry"],
+    answer: 0
   },
   {
     question: "Which of the following worlds appears in Kingdom Hearts 1, but not Kingdom Hearts 2?",
-    choices: [" Agrabah", "Pride Lands", "Atlantica",  "Deep Jungle"],
-    correctAnswer: 3
+    answerList: [" Agrabah", "Pride Lands", "Atlantica",  "Deep Jungle"],
+    answer: 3
   },
   {
     question: "The name's _____. Got it memorized? Whose name should you have memorized?",
-    choices: [" Donald", "Ansem", "Riku", "Axel"],
-    correctAnswer: 3
+    answerList: [" Donald", "Ansem", "Riku", "Axel"],
+    answer: 3
   }
 ];
 
-  var currentQuestion = 0;
-  var correctAnswers = 0;
-  var gameover = false;
-  var question = questions[currentQuestion].question;
-  var questionClass = $(document).find(".quizContainer > .question");
-  var choiceList = $(document).find(".quizContainer > .choiceList");
-  var numChoices = questions[currentQuestion].choices.length;
-  
-  $(document).ready(function () {
-  
-      displayCurrentQuestion();
-      $(this).find(".pickone").hide();
-      $(this).find(".nextButton").on("click", function () {
-          if (!gameover) {
-  
-              value = $("input[type='radio']:checked").val();
-  
-              if (value == undefined) {
-                  $(document).find(".pickone").text("Please pick an answer");
-                  $(document).find(".pickone").show();
-              } else {
-                  
-                  $(document).find(".pickone").hide();
-  
-                  if (value == questions[currentQuestion].correctAnswer) {
-                      correctAnswers++;
-                  }
-  
-                  currentQuestion++; 
-                  if (currentQuestion < questions.length) {
-                      displayCurrentQuestion();
-                  } else {
-                      displayScore();
-            
-                      $(document).find(".nextButton").text("Play Again?");
-                      gameover = true;
-                  }
-              }
-          } else { 
-              gameover = false;
-              $(document).find(".nextButton").text("Next Question");
-              resetQuiz();
-              displayCurrentQuestion();
-              hideScore();
-          }
-      });
-  
-  }); 
 
-  function displayCurrentQuestion() {
-  
-      var question = questions[currentQuestion].question;
-      var questionClass = $(document).find(".quizContainer > .question");
-      var choiceList = $(document).find(".quizContainer > .choiceList");
-      var numChoices = questions[currentQuestion].choices.length;
-  
 
-      $(questionClass).text(question);
-  
-      $(choiceList).find("li").remove();
-  
-      var choice;
-      for (i = 0; i < numChoices; i++) {
-          choice = questions[currentQuestion].choices[i];
-          $('<li><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</li>').appendTo(choiceList);
-      }
-  }
-  
-  function resetQuiz() {
-      currentQuestion = 0;
-      correctAnswers = 0;
-      hideScore();
-  }
-  function displayScore() {
-      $(document).find(".quizContainer > .result").text("Your Score is : " + correctAnswers + " out of: " + questions.length);
-      $(document).find(".quizContainer > .result").show();
-  }  
-  function hideScore() {
-      $(document).find(".result").hide();
-  }
+var jpgArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10'];
+var currentQuestion; 
+var rightAnswer; 
+var wrongAnswer; 
+var unanswered; 
+var seconds; 
+var time; 
+var answered; 
+var picked;
+var messages = {
+	correct: "That's right!",
+	incorrect: "That's wrong!",
+	endTime: "Outta time!",
+	finished: "Here are your results!"
+}
+
+$('#startBtn').on('click', function(){
+	$(this).hide();
+	newGame();
+});
+
+$('#startOverBtn').on('click', function(){
+	$(this).hide();
+	newGame();
+});
+
+function newGame(){
+	$('#finalMessage').empty();
+	$('#rightAnswers').empty();
+	$('#wrongAnswers').empty();
+	$('#unanswered').empty();
+	currentQuestion = 0;
+	rightAnswer = 0;
+	wrongAnswer = 0;
+	unanswered = 0;
+	newQuestion();
+}
+
+function newQuestion(){
+	$('#message').empty();
+	$('#correctedAnswer').empty();
+	$('#jpg').empty();
+	answered = true;
+	
+	//show current question
+	$('#currentQuestion').html('Question '+(currentQuestion+1)+'/'+triviaQuestions.length);
+	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
+	for(var i = 0; i < 4; i++){
+		var choices = $('<div>');
+		choices.text(triviaQuestions[currentQuestion].answerList[i]);
+		choices.attr({'data-index': i });
+		choices.addClass('thisChoice');
+		$('.answerList').append(choices);
+	}
+	countdown();
+	//takes to answer page
+	$('.thisChoice').on('click',function(){
+		picked = $(this).data('index');
+		clearInterval(time);
+		answerPage();
+	});
+}
+
+function countdown(){
+	seconds = 10;
+	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	answered = true;
+	//counts down
+	time = setInterval(showCountdown, 1000);
+}
+
+function showCountdown(){
+	seconds--;
+	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	if(seconds < 1){
+		clearInterval(time);
+		answered = false;
+		answerPage();
+	}
+}
+
+function answerPage(){
+	$('#currentQuestion').empty();
+	$('.thisChoice').empty(); //Clears game page
+	$('.question').empty();
+
+	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
+	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
+	$('#jpg').html('<img src = "images/'+ jpgArray[currentQuestion] +'.jpg" width = "400px">');
+	
+	//rounds up results
+	
+	if(currentQuestion == (triviaQuestions.length-1)){
+		setTimeout(scoreboard, 5000)
+	} else{
+		currentQuestion++;
+		setTimeout(newQuestion, 3000);
+	}	
+
+	if((picked == rightAnswerIndex) && (answered == true)){
+		rightAnswer++;
+		$('#message').html(messages.correct);
+	} else if((picked != rightAnswerIndex) && (answered == true)){
+		wrongAnswer++;
+		$('#message').html(messages.incorrect);
+		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+	} else{
+		unanswered++;
+		$('#message').html(messages.endTime);
+		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		answered = true;
+	}
+}
+
+function scoreboard(){
+	$('#finalMessage').html(messages.finished);
+	$('#rightAnswers').html("Correct Answers: " + rightAnswer);
+	$('#wrongAnswers').html("Incorrect Answers: " + wrongAnswer);
+	$('#unanswered').html("Unanswered: " + unanswered);
+	$('#startOverBtn').addClass('reset');
+	$('#startOverBtn').show();
+	$('#startOverBtn').html('Start Over?');
+
+	$('#timeLeft').empty();
+	$('#message').empty();
+	$('#correctedAnswer').empty();
+	$('#jpg').empty();
+}

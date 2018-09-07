@@ -1,88 +1,83 @@
-.body{
-        background:url("images/backdrop.jpg");
-        background-size: cover;
-}
- h1 {
-    color: rgb(159, 184, 48);
-    font-family:'Courgette', cursive;
-    text-align: center;
-    
-}
-li {
-    font-family:'Courgette', cursive;
-    font-size: 2em;
-}
-input[type=radio] {
-    border: 0px;
-    width: 1.5em;
-    height: 2em;
-}
-p {
-    font-family:'Courgette', cursive;
-}
- .quizContainer {
-    background-color: rgb(207, 29, 29);
-    box-shadow: 1em 1em .5em rgb(159, 184, 48);
-    border-radius: .5em;
-    width: 75%;
-    margin: auto;
-    padding-top: .5em;
-    position: relative;
-}
-.nextButton {
-    background-color: rgb(159, 184, 48);
-    color: rgb(190, 45, 45);
-    border-radius: 6px;
-    width: 12em;
-    height: 3em;
-    text-align: center;
-    font-family:'Courgette', cursive;
-    font-size: 2em;
-    position: relative;
-    margin: auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-.question {
-    background-color: rgb(159, 184, 48);
-    color:  rgb(190, 45, 45);
-    font-family:'Courgette', cursive;
-    font-size: 2em;
-    width: 90%;
-    height: auto;
-    margin: auto;
-    border-radius: .5em;
-    
-    text-align: center;
-}
- 
-.pickone {
-    color: red;
-    background-color: rgb(157, 189, 45);
-    border-radius: .5em;
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    padding: .5em;
-    font-family:'Courgette', cursive;
-    
-}
-.choiceList {
-    font-family: Courier, cursive;
-    color: rgb(6, 2, 10);
-}
-ul {
-    list-style: none;
-}
-.result {
-    background-color: rgb(161, 216, 31);
-    width: 50%;
-    height: auto;
-    margin: auto;
-    text-align: center;
-    font-family:'Courgette', cursive;
+.headerImg{
+
+    height: 180px;
+    border-bottom-style: solid;
+    border-width: 5px;   
+    border-bottom-color: rgb(238 ,8 ,8); 
+   
 }
 
-#timer{
-    color: rgb(216, 216, 60);
+body{
+    background: url('images/backdrop5.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+	font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    color:rgb(238, 8, 8);
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+        1px 1px 0 #000;
+    
+}
+
+.container{
+    background: url('images/moonquizback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center top;
+	margin-top: 25px;
+	text-align: center;
+	height: 100%;
+    width: 900px;
+    border-style: double;
+    border-width: 5px;
+}
+
+.answerList
+{
+    padding: 2px;
+}
+
+.btn-primary,.reset{
+	background-color: #1c26f3;
+	color: rgb(255, 255, 255);
+	font-family: 'Sigmar One', sans-serif;
+	font-size: 40px;
+	padding: 25px;
+	margin-top: 100px;
+}
+.btn-primary:hover, .reset:hover{
+	background-color: #0b1180;
+}
+
+.thisChoice:hover{
+	background-color: #0b1180;
+	color:  rgb(255, 255, 255);
+	padding: 10px;
+}
+
+h2, #message, #finalMessage{
+	font-family: Sigmar One;
+}
+
+
+
+#jpg{
+	margin: 30px;
+}
+
+h8{
+    color:white; 
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:640px){
+	.container{
+		width: 500px;
+		margin-top: 200px;
+		size: 200%;
+	}	
 }
